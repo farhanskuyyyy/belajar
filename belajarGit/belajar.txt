@@ -252,3 +252,5 @@ sikronisasi dari local ke github dan ke web hosting
 caranya : 
   1. ubah source code, commit and push ke github 
   2. pull dari web hosting ke repo github 
+
+tes
