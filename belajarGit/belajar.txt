@@ -1,0 +1,254 @@
+- git adalah version control system 
+
+- beberapa istilah - istilah di git & github 
+* branch 
+  berarti percabangan , cabang default master , di master bisa membuat beberapa cabang .
+* merge 
+  berarti penggabungan dua branch.
+  
+  di merge itu child dari suatu branch akan meminta pull request ke parent branch(master)
+  , ketika di setujui oleh branch parent , maka akan di merge 
+
+* fork 
+  berarti menduplikat repositori orang lain ke akun github kita , dan bisa menjadi participant 
+  di repo orang lain , dan bisa melakukan pull request ke repo yang di duplikat 
+
+
+- istilah di git 
+
+* 3 area pada repo git 
+ # working tree 
+   area kerja yang ada di repo untuk menyimpan file, biasanya mendeteksi file yang baru / di ubah di repo 
+ # staging area 
+   area untuk menyimpan perubahan yang ada di dalam repo 
+ # history 
+   area untuk menyimpan perubahan berupa commitan 
+
+* git init 
+  untuk membuat folder menjadi repositori bagi git (menjadi branch master)
+
+* git status 
+  untuk melihat status di dalam sebuah repo 
+
+* git add <nama file> / .
+  untuk memindahkan file dari working tree ke staging area 
+ 
+* git rm --cached <nama file>
+  untuk menghapus file dari stagging area ke working tree 
+
+untuk commit pertama kali , kita harus menconfig gitnya 
+
+  git config --global user.email "email@example.com"
+
+  git config --global user.name "name"
+
+* git commit -m "pesan untuk commitan"
+  melakukan commit di branch
+
+* git log 
+  untuk melihat aktifitas apa saja yang sudah di lakukan di repositori 
+
+* git log -3
+  melihat akitfitas 3 terkahir saja di repo 
+
+* git log -- <nama file>
+  untuk melihat aktifitas di suatu file 
+
+* git checkout <angka 5 digit awal commit hash> 
+  untuk mengembalikan kondisi repo ke kondisi commit yang diinginkan 
+
+* git checkout <angka 5 digit awal commit hash> -- <nama file>
+  untuk mengembalikan kondisi file di repo ke kondisi commit yang diinginkan 
+ 
+setelah checkout , file yang di checkout akan berada di stagging area , jadi kita harus commit setelah checkout 
+
+
+git branch 
+
+* git branch 
+  untuk melihat bracnh yang ada di repositori
+
+* git branch <nama branch>
+  membuat branch baru 
+
+* git log  --all --decorate --oneline --graph 
+  melihat log branch repo 
+
+* alias <nama alias> = "<perintah git , contohnya : git log  --all --decorate --oneline --graph >"
+  untuk membuat alias perintah ,jadi tidak usah menulis panjang" 
+
+* git checkout <nama branch>
+  berpindah branch 
+
+
+# merge ada 2 tipe 
+
+  - fast forward 
+    biasanya merge branch yang masih sejalur 
+
+  - three ways merge 
+    kalo ini merge 2 branch yang berbeda . merge ini membuat titik temu , dan membuat commit baru 
+
+    * git merge <nama branch> -m "<pesan commmit>" (masih gatau wkwkwk)
+
+* git merge <nama branch yang ingin di merge> 
+  checkout dulu ke branch master ,kemudian merge ke branch yang diinginkn 
+
+* git branch -d <nama branch>
+  menghapus branch 
+
+* git branch --merged 
+  melihat branch yang sudah di merge 
+
+
+* kalo saat ngemerge itu ada conflik , di selesaikan dl konfliknya , kemdian pindahkan ke stagingg area daan commit 
+ 
+
+* ada kondisi dimana pointer head itu lepas dari branch ,namanya "detached head"
+* jadi , kita checkout ke commit yang ga ppunya branch / branchnya sudah di hapus 
+* disini kita bisa bikin branch baru kalo pengen bikin di commit tsb 
+
+
+# git remote 
+=> nmenghubungkan antara repositori cloud dengan repositori local 
+
+#cara 1 , buat dari repo cloude ke repo lokal 
+* bikin repo cloud 
+
+* git clone <link repo cloud> <nama file optional>
+  untuk mencloning repo cloud ke repo local 
+
+* git push 
+  untuk menupload commit di repo local ke repo cloud 
+
+#cara 2 , buat repo local ke repo cloud 
+
+* kalo udah bikin repo local , kita bikin repo cloudnya dl ,tanpa readme 
+
+* git remote add origin <link repositori cloud>
+
+* git push -u origin master 
+
+=================
+
+* git fetch 
+  untuk melihat commitan yang ada di remote / repo cloud 
+
+* git pull 
+  untuk mengambil source code dari cloud repo 
+
+* nah kalo pas ngegpull ada conflict ,maka harus di merge , sama seperti merge biasa , 
+kemdian di resolve ,setelah itu di commit di local kemudian di push ke remote 
+
+
+/////////////////////
+
+github pages 
+=> hosting gratis di github , tapi hanya web statik saja (html,css,js)
+
+#cara pertama 
+*buat repo di github dengan nama <akungithub>.github.io tanpa readme 
+
+* kemudian buat remote di repo local
+
+* setelah itu commit dan push ke repo cloud nya / github 
+untuk push pertama kali , pake perintah = git push -u origin master 
+
+
+# cara kedua 
+
+* buat repo di github dengan nama bebas tanpa readme 
+
+* kemudian hubungkan repo local dengan github 
+
+* setelah itu buka setting repo github,scroll ke github pages lalu pilih branch untuk ditampilkan di github pages  
+
+
+////////////////////
+multiple remote 
+
+* pertama kita harus membuat remote baru dl ,ini kondisinya kita sdah punya remote origin (repo github sendiri) yang berasal dari
+repo orang dengan cara di fork ke akun github kita 
+
+* trus kita bikin dah tuh remote buat repo orang lain , jadi bisa di singkronin 
+   git remote add <nama remote> <link repo orang lain> 
+   =>ini supaya kita bisa akses untk melihat perubahan di repo orang lain 
+
+* kalo dah bikin remote ,kita jalanin perintah 
+  git fetch 
+  => ini untk melihat status terbaru di repo github dengan cara di remote 
+
+* nah kalo ada perubahan di repo orang lain yang kita fork ,maka kita merge dl biar bisa ambil perubahannya 
+  git merge <nama remote>/<nama branch>
+
+//////////////
+
+remote branch 
+
+* jadi kan kita udah bisa singkronin tuh repo orang lain dengan cara fork 
+* nah kalo kita pengen ngubah itu bisa ,pake pull request 
+
+* tapi sebeluum ngubah source codenya ,lebih baik kita buat dl branch baru ,supaya branch masternya tetap singkron dengan repo aslinya 
+ 
+* kalo udah di ubah souce codenya trus di push ke repo kita 
+
+* abis itu buka web github ,kemudian kirim pull request deh.
+
+* kalo dah di aprove dan di merge oleh orang yang pnya repo , kita bisa apus branch kita di local maupun di github
+  local : git branch -d <nama branch>
+  remote : git push origin --delete <nama branch>
+
+///////////////////
+.gitignore
+
+* file untuk membuat file menjadi diabaikan ketika di tambahkan ke staging area dengan cara di git add . 
+
+* cara nya tinggal bikin file namanya '.gitignore' , lalu isi di dalamnya nama file yang ingin diabaikan 
+  contohnya : config.txt => untuk file 
+              /<nama folder> => untuk folder 
+              *.exe => untuk semua file berekstensi .exe 
+
+
+* kalo mau liat referensi gitignore bisa ke web = https://gitignore.io
+
+/////////////
+rebase 
+
+*jadi gampangnya rebase itu kaya buat nyamain ke branch yang di tujuu 
+
+* misal branch master ketinggalan sama branch fitur 
+gini 
+
+* branch fitur 
+|
+|  * branch master 
+| /
+* branch master 
+
+* nah kalo kita ketikin perintah 'git rebase master' di branch fitur , maka branch fitur sama master bakalan sejalur lagi 
+gini 
+
+* branch fitur 
+|
+* branch master 
+|
+* branch master 
+
+* nah jadi sejalur , gausah three ways merge lagi 
+tapi masalahnya pointer branch master sama fitur masih belom sama 
+
+* nah sekarang gantian kita checkout ke branch master , trus ketik perintah 'git rebase fitur' 
+ maka pointer branch master sama fiturnya sudah sejajar 
+
+//////////////
+sikronisasi dari local ke github dan ke web hosting 
+
+* jadi pertama kita buat repo dl di github 
+
+* hubungkan (clone/add remote) repo github dengan local dan repo github dengan repo di web hosting 
+
+* setelah terhubung maka kita bisa mengubah source code web hosting dari local
+
+caranya : 
+  1. ubah source code, commit and push ke github 
+  2. pull dari web hosting ke repo github 

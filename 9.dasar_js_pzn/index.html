@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+    // // Console Method
+
+    // console.debug()
+    // memberikan informasi yang lebih lengkap dari info()
+    // console.debug("debug");
+
+    // console.info() / console.log()
+    // memberikan informasi
+    // console.info("info");
+
+    // console.warn()
+    // memberikan informasi Peringatan
+    // console.warn("Peringatan! ");
+
+    // console.error()
+    // memberikan informasi Eror
+    // console.error("Error!");
+
+    // console.table()
+    // memberikan informasi dalam bentuk table atau array
+    // console.table(['halo','dunia']);
+
+    ////////////////////////////////////////
+    // // String Template 
+
+    // => Berfungsi dimana kita bisa mensubtitusikan data dari luar string ke dalam string,
+    // seperti mengambil dari variable atau melakukan operasi matematika 
+    // => Untuk menggunakan string template caranya dengan tanda ` (backtick) , bukan '(petik),
+    // atau " (petik dua).
+
+    // ex 
+    // let nama = "farhan"; 
+    // let nilai = 80 ;
+    // let template = `namaku adalah ${nama} dan aku lulus = ${nilai > 75} dengan ipk ${nilai / 2}`;
+
+    // console.log(template);
+
+    // string template juga bersifat multiline ,jadi tidak pengaruh kalau ada enter di dalam string
+    // ex 
+//     let multiline = `Namaku adalah ${nama}
+// dan aku punya nilai ${nilai}`;
+//     console.log(multiline);
+
+    ///////////////////////////
+    // // konversi string dan number 
+    // // 1.parseInt(string)   // konversi dari string ke number (bilangan bulat)
+    // // jadi kalo parseInt nerima nilai pecahan , dia akan menghiraukan angka setelah titik (.)
+    // console.log(parseInt("1.1"));
+
+    // // 2.parseFloat(string) // konversi dari string ke number (bilangan pecahan)
+    // console.log(parseFloat("1.1"));
+    // // kalau parseFloat dia nerima nilai pecahan bisa 
+
+    // // 3.Number(string)     // konversi dari string ke number (bilangan bulat dan pecahan)
+    // console.log(Number("1.1"));
+    // // kalau Number dia nerima nilai pecahan dan bulat bisa .
+
+    // // 4.number.toString()  // konversi dari number ke string
+    // let a = 2;
+    // let b = 4;
+    // console.log(a.toString() + b.toString());
+
+
+    // // a. NaN (Not a Number)
+
+    //     // jadi NaN ini sebuah number spesial yang menyebutkan bahwa ini bukan number 
+    //     // jika NaN di jumlah kan dengan number lain , maka hasilnya akan NaN 
+
+    //     // contoh jika kita mengubah abjad jadi number , maka akan menghasilkan nilai NaN
+    //     console.log(NaN + 5);
+
+    //     // tapi ada beberapa perbedaan di antara function konversi ke number 
+
+    //     // 1. parseInt();
+    //     // ini Bersifat Toleransi untuk string jika di belakang
+    //     console.log(parseInt("halo"));  // Hasilnya NaN
+    //     console.log(parseInt("1halo")); // Hasilnya 1 
+
+    //     // 2. parseFloat();
+    //     // ini bersifat Toleransi untuk string di belakang 
+    //     console.log(parseFloat("halo"));  // Hasilnya NaN
+    //     console.log(parseFloat("1.1halo")); // Hasilnya 1 
+
+    //     // 3. Number()
+    //     // ini bersifat Tidak Toleransi ,jika ada satupun huruf atau simbol , dia akan menghasilkan NaN
+    //     console.log(Number("halo"));  // Hasilnya NaN
+    //     console.log(Number("1halo")); // Hasilnya 1 
+    //     console.log(Number("1.1halo")); // Hasilnya 1 
+
+    // // b. isNaN
+
+    //     // untuk melakukan pengecekan nilai yang bernilai NaN
+    //     // hasil akan true jika nilai bernilai NaN , dan sebaliknya 
+
+    //     console.log(isNaN(Number("salah")));
+    //     console.log(isNaN(100));
+    //     console.log(isNaN(NaN));
+
+    ////////////////////////////////////
+
+    // // Tipe data Object 
+
+    // // adalah tipe data yang mirip dengan tipe data array 
+    // // yang membedakan adalah indeks pada tipe data object bisa menggunakan string 
+    // // mudahnya object seperti assosiative array di php 
+    // // indeks di object biasa di sebut attributes atau properties 
+
+    // let orang = {
+    //     "nama lengkap" : "Farhan",    //bisa seperti ini untuk kata yang lebih dari satu  
+    //     kelas : 12,                   // atau seperti  
+    //     umur : 18
+    // };
+    // console.table(orang);
+
+    // // Menambah 
+    // orang["alamat"] = "Ciracas";
+    // console.table(orang);
+
+
+    // // delete 
+    // delete orang["alamat"];
+    // console.table(orang);
+
+    // // select object dengan attribute 
+    // console.info(orang.kelas);              // DISARANKAN SEPERTI INI 
+    // console.info(orang["nama lengkap"]);     // TIDAK DISARANKAN ,tetapi kalau lebih dari 1 kata boleh 
+
+
+    /////////////////////////////////////
+    // // if Expression (Percabangan)
+
+    // // artinya kita bisa mengeksekusi kode program tertentu ketika suatu kondisi terpenuhi 
+    // // menghasilkan nilai boolean , true or false 
+
+    // const nilai = 90 ;
+
+    // if(nilai > 750){
+    //     document.writeln("<p>Nilai Anda A</p>");
+
+    // }else if(nilai > 70){                                       // else if expression sama seperti if , diakan bernilai true jika suatu kondisi terpenuhi
+    //     document.writeln("<p>Nilai Anda B</p>");
+
+    // }else{                                         // else expression ini sisa dari expression sebelumnya , yang menerima nilai false .
+    //     document.writeln("<p>Nilai Anda C</p>");
+    // }
+
+    // // dalam percabangan ini , hanya satu kondisi yang di eksekusi .
+    // // jika ada dua kondisi yang terpenuhi , maka yang akan di eksekusi adalah yang paling pertama 
+
+    ///////////////////////////////////////
+    // // undefined dan null 
+
+    // // Undefined 
+
+    // // undefined adalah tipe data di javascript ,dan juga sebagai kata kunci .
+    // // undefined ini berarti sesuatu yang belum terdefinisikan 
+    // // contohnya : 
+    //     // 1. variable yang belum memiliki value akan menghasilkan nilai undefined 
+    //         var x ;  
+
+    //     // 2. array yang di pilih indeksnya tetapi tidak punya value , menghasilkan nilai undefined 
+    //         var x = ['farhan'];  // undefined 
+    //         x[1]         // undefined
+
+    //     // 3. Object yang dipilih attributenya tetapi tidak punya value atau tidak ada , menghasilkan nilai undefined
+    //         var x = {}   // undefined 
+    //          console.log(x.nama) // undefined
+
+    // // Null 
+
+    // // Null merupakan representasi dari nilai kosong 
+    // // Null berbeda dengan undefined , kalau null sudah di definisikan tetapi nilainya kosong 
+    // // sedangkan undefined itu variable yang belum di tambahkan value apapun 
+
+    //     // var x = null;     // ini berarti nilainya null 
+    //     // var x ;           // ini berarti nilainya undefined
+
+
+    ///////////////////////////////////
+    // // Switch Expression
+
+    // // switch adalah statement percabangan yang sama dengan if ,namun lebih sederhana cara pembuatannya 
+    // // kondisi di switch hanya untuk perbandingan sama dengan (==) 
+
+    // let nilai = "D"
+    // switch(nilai){
+    //     case "A": 
+    //         console.info("Anda Lulus Dengan Baik");
+    //         break;
+    //     case "B":                                   
+    //     case "C":
+    //         console.info("Anda Lulus");
+    //         break;
+    //     case "D": 
+    //         console.info("anda Tidak Lulus");
+    //         break;
+    //     default:
+    //         console.info("Anda Salah Jurusan");
+    // }
+
+    // // untuk menghentikan ketika kondisi terpenuhi itu dengan break
+
+    // // Seperti ini jika di konversi menjadi if else expression 
+    // if(nilai === "A"){
+    //     console.log("Anda Lulus Dengan Baik");
+    // }else if(nilai === "B" || nilai === "C"){
+    //     console.log("Anda Lulus");
+    // }else if(nilai === "D"){
+    //     console.log("Anda Tidak Lulus");
+    // }else{
+    //     console.log("Anda salah Jurusan");
+    // }
+
+    /////////////////////////////
+    // // Operator typeof
+
+    // // merupakan operator yang bisa kita gunakan untuk melihat tipe data dari suatu value atau variable 
+    // // Hasil dari operator typeof yaitu string 
+
+    //     //  type        |       Hasil 
+    //     // undefined            "undefined"     
+    //     // null                  "Object"     
+    //     // Boolean               "boolean"     
+    //     // Number                "Number"     
+    //     // BigInt                "BigInt"     
+    //     // String                "String"     
+    //     // Symbol                "Symbol"     
+    //     // Function              "Function"     
+    //     // Lainnya               "Object"     
+
+    // // contoh 
+    // let nama ;
+    // console.log(typeof nama);
+
+    // nama = "anjay";
+    // console.log(typeof nama);
+
+    ///////////////////////////////////////////////
+    // // Operator in 
+
+    // // in operator adalah operator yang bisa dilakukan untuk mengecek apakah sebuah property ada di dalam object atau tidak 
+    // // jika ada akan , menghasilkan nilai true 
+    // // operator in juga bisa di lakukan di array 
+
+    // let siswa = {
+    //     nama : "farhan",
+    //     kelas : 12,
+    //     lastname : undefined
+    // }
+
+    // if ("nama" in siswa) {
+    //     console.log(`halo ${siswa.nama}`);        
+    // } else {
+    //     console.log("Halo");        
+    // }
+
+    // // operator in hanya mengecek apakah ada ada indeks atau attribute itu saja , 
+    // // tidak mengecek apakah isinya undefined atau null 
+    // // jadi jika attribut dengan value null atau undefined akan tetap menghasilkana nilai true 
+
+    // if ("lastname" in siswa) {
+    //     console.log(`halo ${siswa.lastname}`);        
+    // } else {
+    //     console.log("Halo");        
+    // }
+
+    ////////////////////////////////////
+
+    // // Ternary Operator
+
+    // // adalah operator sederhana dari if statements 
+    // // terdiri dari kondisi yang dievaluasi , jika menghasilkan true maka nilai pertama yang diambil 
+    // // jika false maka nilai kedua yang akan diambil 
+
+    // const nilai = 80 ;
+    // let ucapan ;
+
+    // if(nilai > 70){
+    //     ucapan = "Selamat Anda Lulus";
+    // }else{
+    //     ucapan = "Selamat Anda Tidak Lulus";
+    // }
+
+    // console.log(ucapan);
+
+    // // if statement diatas bisa disederhakan menjadi satu baris dengan ternary operator
+
+
+    // // untuk satu kondisi 
+    // ucapan = nilai > 70  ? "Selamat Anda Lulus" : "Selamat Anda tidak Lulus";
+    // console.log(ucapan);
+
+    // // untuk dua kondisi
+    // ucapan = (nilai > 70 && nilai == 90) ? "Selamat Anda Lulus" : "Selamat Anda tidak Lulus";
+    // console.log(ucapan);
+
+    // // Bisa pake tanda kurung atau pun tidak , sama saja 
+
+    ////////////////////////////////
+    // // Nullish Coalescing operator
+
+    // // berfungsi untuk mengecek apakah value itu null atau undefined 
+    // // menggunakan tanda (??) yang mirip dengan ternary operator ,yang membedakan adalah kondisi ,
+    // // jika bernilai null atau undefined , baru value defaultnya diambil 
+
+    // let parameter ;
+
+    // let data = parameter;
+    // if (data === null || data === undefined) {
+    //     data = "nilai default";
+    // }
+
+    // console.log(data);
+
+    // // hasil sederhana dengan nullish operator 
+
+    // data = parameter ?? "Nilai Default";
+    // console.log(data);
+
+
+    ////////////////////////////////////////////
+    // //Optional Chaining 
+
+    // // merupakan operator yang digunakan untuk mengamankan ketika kita ingin mengakses property sebuah object dari data nullish
+    // // Jika kita mengakses property dari sebuah object data nulish tanpa menggunakan optional chaining operator ,maka terjadi eror
+    // // operator ini menggunakan tanda tanya (?)
+
+    // // cara untuk biar ga eror bisa pake if 
+    // // const person = {};
+    // // let country ; 
+
+    // // if (person.address !== undefined && person.address !== null) {
+    // //     country = person.address.country;
+    // // }
+
+    // // document.writeln(`${country}`);
+
+    // // Bisa dipersingkat dengan optional chaining 
+
+    // // kalo null atau undefined (data Nullish)
+    // // const person = {};
+
+    // // kalo ada isinya 
+    // const person = {
+    //     address :{
+    //         country : "Indonesia"
+    //     }
+    // }
+
+    // let country = person?.address?.country;
+
+    // document.writeln(`${country}`);
+
+    ///////////////////////////////////////
+    // // Operator Logika Non Boolean 
+
+    // // Jadi di Javascript kita bisa menggunakan operator logika di non boolean 
+
+    // // 1. Logika OR 
+    //     // Logika or membaca dari kiri ke kanan 
+    //     // Logika ini akan mengambil nilai pertama yang truthy 
+    //     // Jika tidak ada satupun yang bernilai truthy , maka yang terkahir yang akan di ambil 
+
+    //     // example : 
+    //         console.log("Hello" || '');     // mengambil yang truthy kiri
+    //         console.log("" || []);          // mengambil yang truthy kanan    
+    //         console.log("0" || "NOL");      // 2 2 nya true , mengambil yang truthy pertama
+    //         console.log(0 || undefined);    // 2 2 nya false , mengambil yang falsy terakhir
+
+    //         const person = {
+    //             firstName : "Farhan",
+    //             lastName : "Arfianto"
+    //         };
+
+    //         const name = person.firstName || person.lastName;
+
+    //         console.log(name);
+
+    // // 2. Logika AND
+    //     // Logika AND Membaca dari kiri ke kanan
+    //     // operator ini akan mengambil nilai pertama yang falsy
+    //     // jika tidak ada satupun yang bernilai falsy ,maka yang terakhir akan di ambil 
+
+    //     // example 
+    //         console.info("Hello" && false);             // ambil nilai false 
+    //         console.info(false && "Hello");             // ambil nilai false
+    //         console.info("HelloKiri" && "HelloKanan");  // 2 2 nya true , maka ambil nilai true terakhir
+    //         console.info(false && undefined);           // 2 2 nya false , maka ambil nilai false pertama 
+
+    // ////////////////////////////////////////
+    // // Break and Continue
+
+    // // Break berfungsi untuk menghentikan suatu perulangan atau percabangan 
+    // let i = 1;
+    // while(i < 10){
+    //     if (i == 10) {
+    //         break;
+    //     }
+    //     console.log(i)
+    //     i++
+    // }
+
+    // // continue berfungsi untuk menskip / melewatkan satu perulangan 
+    // let x = 1;
+    // for (let x = 1; x < 10 ; x++) {
+    //     if (x % 2 === 0) {
+    //         continue;
+    //     }
+    //     console.log(`ganjil ke- ${x}`);
+    // }
+
+    ///////////////////////////////////////
+    // // for in  
+    // // merupakan perulangan yang digunakan untuk mengiterasi seluruh data property di object atau di index array
+
+    // // kode for in di object 
+    // const person = {
+    //     firsname : "farhan",
+    //     lastname : "arfianto",
+    // };
+
+    // for (const property in person){
+    //     console.log(`property ${property} : ${person[property]}`);
+    // }
+
+    // // jadi fungsinya untuk mengambil data property di setiap objectnya 
+
+    // // kode for in di array (not recomended)
+    // const name = ["farhan","Arfianto"];
+    // for(const index in name){
+    //     console.log(`index ${index} : ${name[index]}`);
+    // }
+
+    ///////////////////////////////////////
+    // // for of
+    // // jika for in di gunakan untuk melakukan iterasi pada property atau indexnya,
+    // // berbeda dengan for of yang digunakan untuk melakukan iterasi terhadap isi value dari iterable object 
+    // // contoh iterable yaitu string, array ,dll 
+    // // for of tidak bisa digunakan di object , karena object bukan iterable
+
+    // // beda dari for in , ini langsung ambil valuenya ,bukan lagi index atau property
+    // const names = ["farhan","arfianto"];
+    // for(const name of names) {
+    //     console.log(`${name}`);
+    // }
+
+    // // ini akan menghasilkan nilai percharacter
+    // const fullname = "Farhan Arfianto";
+    // for(const character of fullname){
+    //     console.log(`${character}`);
+    // }
+
+    ////////////////////////////////////////////
+
+    // // function 
+    // // adalah blok kode program yang akan berjalan ketika dipanggil 
+    // // cara memanggil function dengan menggunakan nama function lalu diikuti tanda ()
+
+    // // ex 
+    // function sayHello(){
+    //     console.log("Hello");
+    // }
+    // sayHello();
+
+    ////////////////////////////
+    // // function parameter 
+    // // parameter berfungsi untuk meneruskan informasi yang dikirimkan ke suatu function 
+    // // parameter berada di antara () function 
+    // // bisa lebih dari satu parameter di dalam suatu function 
+    // // kalau parameternya ga diisi maka secara default bernilai undefined 
+    // // kalau parammeternya kelebihan ,maka di abaikan yang lebih 
+
+    // // ex 
+    // function sayHello(nama){
+    //     console.log(`Hello ${nama}`)
+    // }
+    // sayHello("Farhan");
+
+    ////////////////////////////
+    // // function return value 
+    // // secara default function tidak mengembalikan nilai
+    // // untuk mengembalikan nilai dari suatu function , kita bisa menggunakan kata kunci return 
+
+    // // ex tanpa return 
+    // function sayHello(nama){
+    //     console.log(`Hello ${nama}`)
+    // }
+    // sayHello("Farhan");
+
+    // function sayHelloRet(nama){
+    //     let say = `Hello ${nama}`;
+    //     return say ;                // untuk mengembalikan nilai
+    // }
+    // console.log(sayHelloRet("Farhan"));         // lbih fleksibel 
+    // document.writeln(sayHelloRet("Farhan"));
+
+    // // return juga berfungsi untuk menghentikan sebuah function 
+    // // jika bertemu maka kode blok setelahnya tidak akan dibaca 
+
+    // function isContains(array,search){
+    //     for (const element of array) {
+    //         if (element === search) {
+    //             return true;
+    //         }
+    //     }
+    //     return false;
+    // }
+
+    // console.log(isContains([10,20,30,40,50],10));       // menghasilkan true ,dan langsung menghentikan function
+
+    //////////////////////////////////////////
+    // // Optional parameter 
+    // // secara default ,parameter di function itu optional 
+    // // jika tidak ada value yang dikirim ke parameter ketika memanggil function ,
+    // // maka secara otomatis akan bernilai undefined 
+
+    // // ex 
+    // function sayHello(nama,kelas){
+    //     console.log(nama);
+    //     console.log(kelas);
+    // }
+
+    // sayHello("farhan");              // param 2 bernilai undefined 
+    // sayHello("farhan",12);   
+    // sayHello("farhan",12,"Arfianto");    // param3 akan diabaikan 
+
+    ////////////////////////////////////
+    // // Default parameter 
+
+    // // parameter bisa kita set nilai defaultnya , jadi ketika kita tidak mengirimkan data atau mengirim data undefined
+    // // ke parameternya ,maka nilai nya secara otomatis diisi oleh default value
+
+    // // ex 
+    // function user(name,male="unknown"){
+    //     console.log(name);
+    //     console.log(male);
+    // }
+
+    // user("farhan");             // default value akan aktif 
+    // user("farhan",undefined);   // sama 
+    // user("farhan","M");         // default value di tiban
+
+    //////////////////////////////////
+    // // rest parameter 
+    // // berfungsi untuk menggabungkan parameter yang dikirimkan menjadi array 
+    // // param ini harus diletakkan di akhir 
+    // // caranya tambahin ... (titik tiga) di depan parameternya 
+    // // ex 
+    // function sum(nama,...data){
+    //     let total = 0;
+    //     for (const item of data) {
+    //         total += item;
+    //     }
+    //     console.log(`total ${nama} = ${total}`);
+    // }
+
+    // sum("jeruk",2,3,45,5,6,76,7);
+
+    // // tapi kalo ngirim array malah tidak sesuai hasilnya 
+    // // maka harus pake spread sytax 
+
+    // let array = [3,4,123,12,32,2,3];
+    // sum("apel",...array);
+
+    // // Arguments Object 
+    // // fitur dimana kita mengambil semua object dalam bentuk array dengan menggunakan object bernama arguments
+
+    // function oldsum(){
+    //     let total = 0;
+    //     for (const item of arguments) {
+    //         total += item;   
+    //     }
+    //     console.log(`total = ${total}`);
+    // }
+
+    // oldsum(2,3,1,24,12,43,12,312);
+
+
+    // //////////////////////////////////
+    // // function sebagai value 
+    // // function bisa disimpan di variable ,dan bisa juga dikirim melalui parameter ke function lain
+
+    // // function in variable 
+    // function sayHello(name){
+    //     console.info(`Hello ${name}`)
+    // }
+
+    // let say = sayHello;     // tanpa ()
+
+    // sayHello("Farhan");
+    // say("Farhan");
+
+    // // function di parameter function
+
+    // function giveMeName(callback){      // callback ini bisa diisi sebuah function  
+    //     callback("Farhan")              // menjalankan function yang dikirimkan 
+    // }
+
+    // giveMeName(sayHello);               //jalanin function 
+    // giveMeName(say)
+
+    //////////////////////////////
+    // // Anonymous Function 
+    // // kita bisa membuat function tanpa nama atau istilahnya anonymous function 
+
+    // // cara 1 
+    // // anonymous di variable 
+    // let say = function(name){
+    //     console.log(name);
+    // }
+
+    // say("Farhannn");
+
+    // // cara 2 
+    // function giveMeName(callback){      // callback ini bisa diisi sebuah function  
+    //     callback("Farhan")              // menjalankan function yang dikirimkan 
+    // }
+
+    // // anonymous function di parameter function 
+    // giveMeName(function(name){
+    //     console.log(name);
+    // })
+
+    //////////////////////////////////
+    // // Scope 
+    // // merupakan area akses data 
+    // // ada 2 jenis scope, local dan global scope 
+
+    // // ## local scope contohnya saat buat function , di dalam function disebut local scope 
+    // // local scope bisa mengakses global scope 
+
+    // // ## global scope itu scope yang diluar local scope 
+    // // global scope tidak bisa mengakses local scope 
+
+    // //global scope 
+    // let counter = 0;
+
+    // function hitme(){
+    //     counter++;  // local scope 
+    // }
+
+    // hitme();
+    // console.log(counter);
+
+    ///////////////////////////////
+    // // recursive function 
+    // // adalah kemampuan function untuk memaggil function dirinya sendiri 
+    // // simpelnya seperti looping 
+
+    // // contoh penggunaannya yaitu faktorial 
+
+    // function faktorial(value){
+    //     let nilai = 1;
+    //     for(let i = 1 ; i <= value ; i++ ){
+    //         nilai *= i ;
+    //     }
+    //     return nilai;
+    // }
+    // console.log(faktorial(5));
+
+    // // contoh penggunaan function recursive 
+
+    // function faktorialRecursive(value){
+    //     if (value == 1) {
+    //         return 1; 
+    //     }else{
+    //         return value * faktorialRecursive(value - 1);
+    //     }
+    // }
+    // console.log(faktorialRecursive(5));
+    // // 5 * faktorialRecursive(4);
+    // // 5 * 4 * faktorialRecursive(3);
+    // // 5 * 4 * 3 * faktorialRecursive(2);
+    // // 5 * 4 * 3 * 2 * faktorialRecursive(1);
+    // // 5 * 4 * 3 * 2 * 1 ;
+
+    ///////////////////////////////////
+    // // function generator
+    // // adalah function yang digunakan untuk membuat data generator
+    // // generator adalah data iterasi sama kaya array 
+    // // untuk membuat generator , kita pake * setelah kata function 
+    // // untuk mengembalikan data tiap iterasi , kita bisa dengan kata kunci yield 
+
+    // // ex 
+    // function* createNames(){
+    //     yield "Farhann";
+    //     yield "Arfianto";
+    // }
+
+    // // data generator bisa di iterasi tetapi tidak bisa diakses per indeks 
+    // const names = createNames();
+    // for (const name of names) {
+    //     console.log(name);        
+    // }
+
+    // // contoh yang lebih kompleks 
+    
+    // // ## data generator itu lazy evaluation 
+    // // jika datannya belum kita ambil dari generator ,maka yield selanjutnya tidak akan dieksekusi
+    
+    // // ## lazy
+    // function* buatGanjil(value){
+    //     for (let i = 1; i <= value; i++) {
+    //         if (i % 2 === 1) {
+    //             console.log(`yield ${i}`)
+    //             yield i;
+    //         }
+    //     }
+    // }
+    
+    // const angkaGanjil = buatGanjil(100);    // ini dijalanin ,tapi kalo ga dipake ya gabakalan ditampilin
+    // // for (const angka of angkaGanjil) {   // nah makanya disini dia dijalaninnya per saat di butuhkan
+    // //     console.log(angka);
+    // // }
+
+    // // next() untuk generator 
+    // // mejalankan generator persatuan 
+    // console.info(angkaGanjil.next().value);
+
+    
+    // // ## eager
+    // function buatGanjilArray(value){
+    //     const result = [];
+    //     for (let i = 1; i <= value; i++) {
+    //         if (i % 2 === 1) {
+    //             console.log(`yield ${i}`);
+    //             result.push(i);
+    //         }
+    //     } 
+    //     return result;
+    // }
+
+    // // const angkaGanjilArray = buatGanjilArray(100);   // kalau array , dia pas dipanggil ,auto tampilin ,karena eager bukan lazy
+    // // for (const angka of angkaGanjilArray) {
+    // //     console.log(angka);
+    // // }
+
+    //////////////////////////////
+    // // Arrow Function 
+    // // adalah alternatif pembuatan anonymous function yang lebih sederhana 
+    // // ada beberapa limitasi di arrow function 
+    //     // tidak memiliki fitur arguments object
+    //     // tidak bisa function generator 
+    //     // tidak bisa mengakses this 
+    //     // tidak bisa mengakses super 
+
+    // // ex 
+    // const sayHello = (nama) => {
+    //     const say = `Hello ${nama}`;
+    //     console.log(say);
+    // }
+    // sayHello("farhan");
+
+
+    // // ## arrow function tanpa block ({})
+    // // syaratnya singkat ,dan baris 
+
+    // const sayHello2 = (name) => console.log(`Hello ${name}`);
+
+    // sayHello2("Farhan");
+
+    
+    // // ## return value di arrow function 
+
+    // // kalau pake block , pake kata kunci return seperti biasa 
+    // // tetapi kalau tanpa block atau satu baris saja , itu tanpa return jg auto mereturn
+
+    // const sum = (val1,val2) => val1 + val2;     // tanpa return bisa mereturn 
+    // console.log(sum(1,2));
+    
+    // // ## arrow function tanpa kurung param 
+    // // jika parameter hanya satu , maka bisa tanpa tanda kurung 
+    // // jika tanpa parameter atau lebih dari 1 maka wajib pake tanda kurung 
+    
+    // // ex 
+    // const sayHello3 = name => console.log(`Hello ${name}`);
+    // sayHello3("farhan");
+    
+    // // ## arrow function sebagai parameter 
+
+    // //ex 
+    // function giveMeName(callback){
+    //     callback("farhan");
+    // }
+
+    // giveMeName(name => {
+    //     console.log(name);
+    // })
+    
+    /////////////////////////////////////////
+    // // closure 
+    // // adalah kombinasi fuction dan bundel referensi ke data disekitarnya 
+    // // dengan kemampuan closure ,kita bisa membuat function di local dan data sekitar keluar scope nya 
+
+    // // ex 
+    // function createAdder(value){
+    //     const owner = "farhan";
+    //     function add(param){
+    //         console.log(owner);
+    //         return value + param ; 
+    //     }
+
+    //     return add                  // mengeluarkan function keluar scope 
+    // }
+
+    // const addtwo = createAdder(2);
+    // // variable diatas seakan kita membuat function di bawah 
+    // // function addtwo(param){
+    // //     console.log("farhan");       hasil dari return function createAdder
+    // //     return 2 + param;            hasil dari return function createAdder
+    // // }
+    // console.log(addtwo(10));
+    // console.log(addtwo(20));
+    
+    ////////////////////////////////
+    
+    // // Object method 
+    // // jadi function bisa dimasukkan kedalam object 
+
+    // // ex 
+    // const person = {
+    //     name : "farhan",
+    //     sayHello : function(name){
+    //         console.log(`Hello ${name}`);
+    //     }
+    // }
+
+    // person.sayHello("farhan");
+
+    ////////////////////////////////
+    // kata kunci this 
+    // // adalah referensi ke object milik siapa 
+    // // tiap lokasi ,kata kunci this memiliki arti berbeda beda 
+    // // di global scope , mereferensi ke object global (window);
+    // // di function juga , mereferensi ke object global (window);
+    // // di function dengan sctrict mode , berarti undefined
+    // // di dalam event ,this merupakan referensi ke element yang menerima event 
+
+    // // global scope 
+    // console.log(this)   // window 
+
+    // // function
+    // function tes(){
+    //     console.log(this);     //window
+
+    //     function inner(){
+    //         console.log(this)   //window
+    //     }
+    // }
+
+    // const person = {
+    //     name : "farhan",
+    //     sayHello : function(tamu){
+    //         console.log(this);   // person 
+    //         console.log(`hello ${tamu} my name is ${this.name}`);   // cara akses this 
+    //     }
+    // }
+    // person.sayHello("aan");
+
+    //////////////////////////////////////////
+
+    // Arrow function di object 
+    // // bisa dimasukkan ke dalam object tetapi sesuai syarat yang ada untuk arrow function 
+    // // contohnya tidak mengakses this ,function generator ,dll 
+    
+    // // this di arrow function mereferensi ke window / global object 
+
+    // const person = {
+    //     name: "farhan",
+    //     sayHello : (name) => {
+    //         console.log(`Hello ${name}`);
+    //     }
+    // }
+
+    // person.sayHello("farhan");
+
+    /////////////////////////////////////////
+
+    // // getter and setter 
+    // // adalah kemampuan membuat function yang berbeda untuk mengambil data(Getter) 
+    // // dan Mengubah data (setter) pada sebuah property object 
+    
+    // // ex 
+    // const person = {
+    //     firstname : "farhan",
+    //     lastname : "arfianto",
+    //     get fullname() {                // pake get ,jadi ini berbentuk property ketika dipanggil 
+    //         return `${this.firstname} ${this.lastname}`
+    //     },
+    //     // fullname : function(){
+    //     //     return `${this.firstname} ${this.lastname}`
+    //     // }
+    //     set fullname(value){
+    //         const array = value.split(" ");
+    //         this.firstname = array[0];      //set data object ,untuk diubah 
+    //         this.lastname = array[1];       //set data object ,untuk diubah 
+    //     } 
+    // }
+
+    // // console.log(person.fullname());
+    // console.log(person.fullname);       // penngambilan get , tanpa () ,artinya fullname adalah property 
+    
+    // // set 
+    // console.log(person.fullname);    // default
+    
+    // person.fullname = "anjay gurinjay";
+    // console.log(person.fullname) ;    // update
+    
+    ///////////////////////////////////
+    // // destructuring 
+    
+    // // adalah fitur yang bisa digunakan untuk membongkar value value di array atau object ke dalam variable 
+    
+    // // desctructuring array 
+    // {
+    //     const names = ['farhan','aan','iin','uun','een'];
+
+    //     const [firstname,middlename,lastname,...others] = names ; 
+    //         //[index 0,    index 1 , index 2 , dst     ] = array
+
+    //     console.log(firstname);     // jadi bisa manggil tanpa indeksnya 
+    //     console.log(middlename);
+    //     console.log(lastname);
+    //     console.log(others);    // ... untuk menyimpan sisanya menjadi array 
+    // }
+
+    // // desctructuring object 
+    // {
+    //     const person = {
+    //     firstname : "farhan",
+    //     lastname : "arfianto",
+    //     address : {
+    //         street : "ciracas",
+    //         city : "jakarta",
+    //         country : "indonesia"
+    //     },
+    //     hobby : "main"
+    //     }
+
+    //     const {firstname,lastname,address,...others} = person;
+    //     //    {sesuai dengan nama property di objectnya}
+
+    //     console.log(firstname);
+    //     console.log(lastname);
+    //     console.log(address);
+    //     console.log(others);        // ... dijadikan object kalau data sebelumnya object    
+    // }
+
+    // // desctructuring nested object
+    // {
+    //     const person = {
+    //     firstname : "farhan",
+    //     lastname : "arfianto",
+    //     address : {
+    //         street : "ciracas",
+    //         city : "jakarta",
+    //         country : "indonesia"
+    //     },
+    //     hobby : "main"
+    //     }
+
+    //     const {firstname,lastname,address:{country,city,street},...others} = person;
+    //     //    {sesuai dengan nama property di objectnya,kalau ada nested object tambahin :{nested object}}
+
+    //     console.log(firstname);
+    //     console.log(lastname);
+    //     console.log(country);
+    //     console.log(city);
+    //     console.log(street);
+    //     // console.log(address);   // jadi gabisa diakses karena isi nya sudah berdiri sendiri
+    //     console.log(others);  
+    // }
+
+    // // desctructuring function parameter 
+    //     // membuat kita mudah ketika ingin mengambil nested data dalam array atau object dalam function 
+    
+    // // 1. object 
+    // {
+    //     function displayPerson({firstname,lastname}){   // di parameternya di extract jadi object 
+    //         console.log(`${firstname} ${lastname}`);
+    //     }
+
+    //     const person = {
+    //         firstname : "farhan",
+    //         lastname : "arfianto"
+    //     }
+
+    //     displayPerson(person);
+    // }
+
+    // // 2. array 
+    // {
+    //     function sum([first,second]){
+    //         return first + second;
+    //     }
+
+    //     angka = [10,20];
+    //     console.log(sum(angka));
+    // }
+
+    // // default value 
+    // // kita bisa menambahkan default value di destructuring 
+    // {
+    //     // kalo gaada valuenya 
+    //     {
+    //         const names = ["farhan","arfianto"];
+    //         const [firstname,middlename,lastname = "gans"] = names ;
+            
+    //         console.log(firstname);
+    //         console.log(middlename);
+    //         console.log(lastname);
+    //     }
+
+    //     // kalo ada valuenya 
+    //     {
+    //         const names = ["farhan","arfianto","anjay"];
+    //         const [firstname,middlename,lastname = "gans"] = names ;
+            
+    //         console.log(firstname);
+    //         console.log(middlename);
+    //         console.log(lastname);
+    //     }
+    // }
+
+    /////////////////////////////////
+    // sctrict mode 
+    // saat menjalankan kode javascript biasa ,secara default itu tidak strict mode atau istilahnya sloppy mode
+    // ada beberapa cara kerja js kalau pake strict mode 
+        // merubah beberapa js silent error(warning) menjadi throw error(terlihat)
+        // memperbaiki beberapa kesalahan engine js
+        // menolak beberapa kode perintah yang kedepannya di pake di ecmascript 
+    
+    // cara menyalakan strict mode 
+        //ketik 'use strict' di awal file javascript ,atau di awal function jika mau function saja 
+
+    // contohnya kalau pake strict mode , with statement itu dianggap eror 
+    // tetapi kalo di sloppy mode ,itu tidak dianggap eror ,tetapi tidak di sarankan saja 
+
+    /////////////////////////////////
+    // // debuger 
+    // // untuk mencari masalh di kode kita 
+    // // dengan debugger kita bisa menghentikann kode program kita di posisi yang diinginkan (breakpoint)
+    // // lalu melihat isi variable yang ada pada kode program ketika berhenti 
+
+    // //debugger sesuai dengan browsernya ,jika di dukung maka akan muncul mode debug
+
+    // // ex 
+    // function sayHello(firstname,lastname){
+    //     debugger;               // kode akan berhenti disini 
+    //     const fullname = `Hello ${firstname} ${lastname}`;
+    //     return fullname ; 
+    // }
+
+    // sayHello("farhan","arfianto");
+ </script>
+</body>
+
+</html>
