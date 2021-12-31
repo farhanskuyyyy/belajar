@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OOP JavaScript</title>
+</head>
+
+<body>
+    <p>paragraf</p>
+</body>
+
+</html>
+<script>
+    // constructor function 
+    // biasanya huruf besar di depan , contoh function PremiumMember
+
+    // class atau constructor function
+    function Person(firstName, lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+
+        // method in class 
+        this.sayHello = function (name) {
+            console.info(`Hello ${name} , my name is ${this.firstName} ${this.lastName}`);
+        }
+    }
+
+    // object farhan 
+    const farhan = new Person("Farhan", "Arfianto");
+    farhan.sayHello('budi');
+
+    console.log(farhan)
+
+</script>
