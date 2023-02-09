@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .active{
+            background-color: red;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar</title>
+</head>
+<body>
+    <div id="app">
+        <header>
+        </header>
+        <section>
+
+            <!-- Method -->
+            <p v-once>{{ title }}</p>  <!-- v-once untuk menjaga variable supaya gabisa diubah di console -->
+            <p>{{ getname() }}</p>
+            <p>{{ description }}</p>
+            
+            <hr>
+            <br>
+            
+            <!-- Computed -->
+            <p>Nama Pembeli = {{ namaLengkap }}</p>
+            <p>Total Bayar = {{ totalBayar }}</p>
+            <p> </p>
+            
+            <hr>
+            <!-- latihan Computed -->
+            <h1>{{ bilangan }}</h1>
+            <p>Bilangan ini adalah bilangan {{ infoBilangan }}</p>
+            
+            <hr>
+            <!-- Directive -->
+            <!-- contohnya v-once  -->
+ 
+            <p v-text="name"></p> <!-- v-text directive buat isi text di element-->
+            <p v-html="link"></p> <!-- v-html directive buat isi element di element-->
+            <p v-text="bilangan*2"></p> <!-- directive bisa jalanin fungsi javascript-->
+            <p v-text="name.toUpperCase()"></p> <!-- directive bisa jalanin fungsi javascript-->
+            <hr>    
+            
+            <!-- v-bind -->
+            <!-- berfungsi untuk mencetak data di atribut dalam element ,seperti class ,dll . jadi tidak menggunakan {{}}  -->
+            <img v-bind:src="linkimage" alt="" style="width: 100px;">
+            <img :src="linkimage" alt="" style="width: 100px;"> <!-- atau bisa seperti ini , tinggal tambah : di depan atribut-->
+            <hr>
+            
+            <!-- event -->
+            <!-- event ini dom javascript , kalo di vue keywordnya v-on:namaevent -->
+            <p>menghitung jumlah klik</p>
+            <p>{{bilangan}}</p>
+            <button v-on:click="handleClick">klik</button>
+            <button @click="handleClick">klik</button>  <!-- bisa jg pake @ buat gantiin v-on -->
+            <hr>
+            
+            <!-- class binding -->
+            <!-- berfungsi untuk menerapkan class secara dinamis , mirip addclass / removeclass di jquery -->
+                <!-- contoh class binding -->
+                <button :class="{active : menu === 'home'}" @click="menu = 'home'">Home</button>
+                <button :class="{active : menu === 'about'}" @click="menu = 'about'">About</button>
+                <button :class="{active : menu === 'contact'}" @click="menu = 'contact'">Contact</button>
+            <hr>
+
+            <!-- two way data binding -->
+            <!-- fitur dari v-model yang berfungsi untuk mengubah data vue realtime di element input -->
+            <p v-text="name"></p>
+            <input type="text" name="" id="" v-model="name">
+            <hr>
+            
+            <!-- directive perulangan v-for -->
+            <!-- berfungsi untuk melakukan perulangan javascript  -->
+            <ul>
+                <li v-for="alias of  kelas" v-text="alias"></li>
+            </ul>
+            <label><input type="checkbox" name="Vue" id="" value="Vue" v-model="kelas">Vue</label>
+            <label><input type="checkbox" name="Angular" id="" value="Angular" v-model="kelas">Angular</label>
+            <label><input type="checkbox" name="React" id="" value="React" v-model="kelas">React</label>
+            <hr>
+
+            <!-- mengakses index for  -->
+            <ul>
+                <li v-for="(alias,index) of  kelas">{{index + 1}} - {{alias}}</li>
+            </ul>
+
+            <!-- membuat perulangan 5 kali -->
+            <p>perulangan 1-5</p>
+            <ul>
+                <li v-for="(a,i) in 5">{{i+1}}</li>
+            </ul>
+            <hr>
+            <br>
+
+            <!-- latihan for  -->
+            <p>Mencari Bilangan Genap</p>
+            <ul>
+                <li v-for="a in cariBilangan(numbers)">{{a}}</li>
+            </ul>
+            <hr>
+            <br>
+
+            <!-- directive if -->
+            <p>jumlah Kelas ( {{kelas.length}} )</p>
+            <ul v-if="kelas.length > 0 ">
+                <li v-for="(alias,index) of  kelas">{{index + 1}} - {{alias}}</li>
+            </ul>
+            <!-- directive v-else -->
+            <li v-else>Kelas Belum Tersedia</li>
+            <hr>
+            <br>
+
+            <!-- directive v-show -->
+            <!-- berbeda dengan v-if , kalo v-if menghilangkan elementnya , kl v-show hanya menhide element -->
+            <p>implementasi v-show</p>
+            <p v-show="show == true">Ada</p>
+            <button @click="show = false">Hilang</button>    
+            <button @click="show = true">Muncul</button>
+            <hr>
+            <br>
+            
+            <!-- element template -->
+            <!-- berfugsi untuk membungkus elemen di kondisi tertentu , template ini tidak akan terdeteksi jika di inspect element  -->
+            <p>jumlah Kelas ( {{kelas.length}} )</p>
+            <template v-if="kelas.length > 0 ">
+                <ul>
+                    <li v-for="(alias,index) of  kelas">{{index + 1}} - {{alias}}</li>
+                </ul>
+            </template>
+            <!-- directive v-else -->
+            <li v-else>Kelas Belum Tersedia</li>
+            <hr>
+            <br>
+
+
+        </section>
+        <footer>
+            <p>footer</p>
+        </footer>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+<script>
+ const vm = new Vue({
+    el:'#app',
+        data:{
+            title:'Belajar Vue',
+            description:'Bismillah Belajar Vue',
+            name:'farhan',
+            qty:1,
+            namaDepan:'aan',
+            namaBelakang:'arfianto',
+            bilangan : 1,
+            link:"<a href='index.html'>link html</a>",
+            linkimage:"image/Vue.png",
+            menu:'home',
+            kelas:['golang','php'],
+            numbers:[1,2,3,4,5],
+            show : true
+        },
+        methods :{
+            getname : function() {
+                return 'Hello ' + this.name;
+            },
+            changeName : function(newName) {
+                this.name = newName;
+                return this.getname();
+            },
+            handleClick : function() {
+                return this.bilangan++;
+            },
+            cariBilangan : (number) => {
+                return number.filter( (angka) => {
+                    return angka % 2 == 0
+                })
+            }
+        },
+        computed : {
+            totalBayar : function(){
+                return this.qty * 10000;
+            },
+            namaLengkap : function(){
+                return this.namaDepan + ' ' + this.namaBelakang;
+            },
+            infoBilangan : function(){
+                return this.bilangan%2 === 0 ? 'Genap' : 'Ganjil';
+            }
+
+        }
+ });
+</script>
+</html>
